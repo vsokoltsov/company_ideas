@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: company_ideas
+    env_file: ./.env
+
+  company_ideas:
+    image: vsokoltsov/company_ideas
+    container_name: company_ideas
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file: ./.env
+    volumes:
+      - .:/company_ideas
+    ports:
+     - "8080:8080"
+    depends_on:
+      - mongo
