@@ -23,6 +23,7 @@ async def sign_up(request):
     }
     try:
         result = await dbclient.users.insert_one(user)
+        ipdb.set_trace()
         return web.json_response(result)
     except pymongo.errors.DuplicateKeyError as e:
         return web.json_response(e.args[0])
@@ -30,8 +31,7 @@ async def sign_up(request):
 async def current_user(request):
     return web.json_response(request)
 
-
-def start(args):
+def get_app():
     app = web.Application()
     app.add_routes([
         web.get('/', hello),
@@ -39,4 +39,7 @@ def start(args):
         web.post('/sign_up', sign_up),
         web.get('/current_user', current_user)
     ])
-    web.run_app(app, port=8000)
+    return app
+
+def start(args):
+    web.run_app(get_app(), port=8000)

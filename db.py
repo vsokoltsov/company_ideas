@@ -1,6 +1,8 @@
 import asyncio
 import motor.motor_asyncio
 
+# TODO figure out how to implement creation database for the test and dev environments
+
 async def create_user_unique_index(client):
     return await client.users.create_index('email', unique=True)
 
