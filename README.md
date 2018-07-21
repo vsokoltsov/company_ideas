@@ -1,3 +1,3 @@
 ## Run server
 
-* `python -m aiohttp.web -H localhost -P 8000 server:start`
+* `python manage.py start`
