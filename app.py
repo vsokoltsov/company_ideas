@@ -23,7 +23,6 @@ async def sign_up(request):
     }
     try:
         result = await dbclient.users.insert_one(user)
-        ipdb.set_trace()
         return web.json_response(result)
     except pymongo.errors.DuplicateKeyError as e:
         return web.json_response(e.args[0])
