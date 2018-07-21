@@ -1,10 +1,8 @@
-from aiohttp.test_utils import AioHTTPTestCase, unittest_run_loop
-from app import get_app
+from aiohttp.test_utils import unittest_run_loop
+from tests.base import BaseTestCase
+import ipdb
 
-class AuthorizationViewTests(AioHTTPTestCase):
-
-    async def get_application(self):
-        return get_app()
+class AuthorizationViewTests(BaseTestCase):
 
     @unittest_run_loop
     async def test_success_sign_up(self):
