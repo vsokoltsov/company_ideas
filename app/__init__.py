@@ -1,17 +1,16 @@
 from aiohttp import web
-from app.db import dbclient
 
 from app.api import objects
+import ipdb
 
 
 class AppServer:
     """App server class."""
 
-    def __init__(self, end=None):
-        """Set default ."""
+    def __init__(self, env=None):
+        """Set default."""
 
         self.app = web.Application()
-        self.db = dbclient
         self.app.add_routes(objects)
 
     def run(self):
