@@ -4,8 +4,6 @@ services:
   mongo:
     image: mongo
     restart: always
-    environment:
-      MONGO_INITDB_DATABASE: company_ideas
     env_file: ./.env
 
   company_ideas:
