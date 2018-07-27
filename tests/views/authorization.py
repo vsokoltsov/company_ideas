@@ -10,4 +10,4 @@ class AuthorizationViewTests(BaseTestCase):
             'email': 'example@mail.com',
             'password': '123456'
         }
-        resp = await self.client.post('/sign_up', data=data)
+        resp = await self.client.post('/api/v1/sign_up', data=data)

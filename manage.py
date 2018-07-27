@@ -18,6 +18,7 @@ def start():
 def test(path=None):
     """Run tests."""
     os.environ[APP_ENV] = TEST
+    ipdb.set_trace()
     if path is None:
         tests = unittest.TestLoader().discover('tests', pattern='*.py')
     else:
